@@ -1,0 +1,62 @@
+{% extends 'basecard.html' %}
+
+{% block title %}{{ hotel.name }}{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="card-page">
+    <div class="card-container">
+
+        <a href="javascript:history.back()" class="back-btn">
+            <img style="width: 32px; height: 32px; position: relative; top: 20px;" 
+                 src="{% static 'images/arrow_back_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' %}" alt="Back">
+        </a>
+
+        <img src="{{ hotel.image }}" alt="{{ hotel.name }}" class="main-image" id="mainImage">
+
+        <div class="card-content">
+
+            <div class="image-gallery">
+                {% for hotel_image in gallery_images %}
+                    {% for image_url in hotel_image.get_gallery_images %}
+                        <img src="{{ image_url }}" alt="Thumbnail" class="thumbnail" onclick="changeImage(this.src)">
+                    {% endfor %}
+                {% empty %}
+                    <p>No images available</p>
+                {% endfor %}
+            </div>
+
+            <div class="title-price">
+                <h2>{{ hotel.name }}</h2>
+                <span class="price">${{ hotel.price_per_night }} / person/night</span>
+            </div>
+
+            <div class="location-rating">
+                <span class="location">{{ hotel.country }}</span>
+                <span class="rating">★ 5.0</span>  
+            </div>
+
+            <div class="room-info">
+                <p><strong>Rooms:</strong> <br>{{ hotel.rooms_count }} Room(s)</p>
+                <p><strong>Max Guests:</strong> <br> {{ hotel.max_guests }} Guest(s)</p>
+            </div>
+
+            <div class="description">
+                <div class="tabs">
+                    <button class="active">Description</button>
+                    <button>Review</button>
+                </div>
+                <p>{{ hotel.description|default:"No description available." }} <a href="#">Read more</a></p>
+            </div>
+
+            <a href="{% url 'rating' %}">
+                <button class="book-btn">Book Now!</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'js/a.js' %}"></script>
+{% endblock %}

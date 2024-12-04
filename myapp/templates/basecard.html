@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Travel Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'site.webmanifest' %}">
+
+
+    
+</head>
+<body>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <!-- <footer class="footer">
+        <div class="container footer-row">
+            <a href="{% url 'search_action' %}" class="home-button">Home</a>
+            <a href="{% url 'search_action' %}" class="home-button">Hotels</a>
+            <a href="{% url 'search_action' %}" class="home-button">Register</a>
+            <a href="#" class="home-button">More</a>
+        </div>
+    </footer> -->
+
+    <script src="{% static 'js/a.js' %}"></script>
+</body>
+</html>

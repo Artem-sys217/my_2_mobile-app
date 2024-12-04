@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Travel Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'site.webmanifest' %}">
+
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="search-bar">
+                <form action="{% url 'search_action' %}">
+                    <input type="text" name="q" placeholder="Search here">
+                    <button type="submit" class="search-button">
+                        <img src="{% static 'images/loopa.svg' %}" class="loopa-img" alt="Search">
+                    </button>
+                </form>
+                
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="categories-list">
+        <a href="{% url 'home_page' %}" class="all1">
+            <h4 class="all2">All</h4>
+        </a>
+        
+        {% for category in categories %}
+            <a href="{% url 'category_tours' category_slug=category.slug %}" class="all1">
+                <h4 class="all2">{{ category.name }}</h4>
+            </a>
+        {% endfor %}
+    </div>
+    
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+
+
+    <script src="{% static 'js/a.js' %}"></script>
+</body>
+</html>

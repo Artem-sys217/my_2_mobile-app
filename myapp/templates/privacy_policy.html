@@ -1,0 +1,63 @@
+{% extends 'basecard.html' %}
+
+{% block title %}Политика конфиденциальности{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class="privacy-policy-container">
+
+        <a href="{% url 'home_page' %}" class="back-btn">
+            <img src="{% static 'images/arrow_back_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' %}" alt="Back" style="width: 32px; height: 32px; position: relative; top: 20px;">
+        </a>
+
+        <h1 class="privacy-policy-title">Политика конфиденциальности</h1>
+        <p class="privacy-policy-intro">
+            Мы ценим вашу конфиденциальность и стремимся защитить ваши персональные данные.
+            В этой политике объясняется, как мы собираем, используем и защищаем вашу информацию.
+        </p>
+
+        <div class="privacy-policy-section">
+            <h2 class="privacy-policy-subtitle">1. Какие данные мы собираем</h2>
+            <p>
+                Мы собираем персональные данные, такие как ваше имя, адрес электронной почты, 
+                информация о бронированиях и предпочтениях, которые вы предоставляете при регистрации или использовании нашего сайта.
+            </p>
+        </div>
+
+        <div class="privacy-policy-section">
+            <h2 class="privacy-policy-subtitle">2. Как мы используем ваши данные</h2>
+            <p>
+                Мы используем ваши данные для улучшения качества наших услуг, обработки заказов, 
+                а также для предоставления персонализированных предложений и обновлений.
+            </p>
+        </div>
+
+        <div class="privacy-policy-section">
+            <h2 class="privacy-policy-subtitle">3. Как мы защищаем ваши данные</h2>
+            <p>
+                Мы принимаем все необходимые меры для защиты ваших данных от несанкционированного доступа, 
+                использования или раскрытия. Все данные передаются через защищенное соединение.
+            </p>
+        </div>
+
+        <div class="privacy-policy-section">
+            <h2 class="privacy-policy-subtitle">4. Ваши права</h2>
+            <p>
+                Вы имеете право на доступ, исправление и удаление своих данных. Также вы можете запросить копию всех данных, 
+                которые мы о вас храним.
+            </p>
+        </div>
+
+        <div class="privacy-policy-section">
+            <h2 class="privacy-policy-subtitle">5. Изменения в политике</h2>
+            <p>
+                Мы оставляем за собой право изменять эту политику в любое время. Все изменения будут опубликованы на этой странице.
+            </p>
+        </div>
+
+        <div class="privacy-policy-footer">
+            <p>Последнее обновление: Январь 2024</p>
+        </div>
+    </div>
+{% endblock %}

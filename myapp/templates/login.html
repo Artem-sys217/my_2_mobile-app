@@ -1,0 +1,32 @@
+{% extends 'basecard.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Entry</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="forgot-password">
+                    <a href="{% url 'password_reset' %}">Forgot password?</a>
+                </div>
+                <button class="login-btn" type="submit">Login</button>
+            </form>
+            <div class="signup">
+                <p>New to Living App? <a href="{% url 'register' %}">Sign up</a></p>
+            </div>
+            <button class="social-login apple-login">
+                <span>Login with</span> <img src="{% static 'images/Apple.svg' %}" alt="Apple">
+            </button>
+            <button class="social-login google-login">
+                <span>Login with</span> <img src="{% static 'images/Google.svg' %}" alt="Google">
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

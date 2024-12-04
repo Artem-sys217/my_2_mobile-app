@@ -1,0 +1,47 @@
+{% extends 'basecard.html' %}
+
+{% block title %}{{ card.name }}{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="hotel-page">
+    <div class="hotel-container"></div>
+
+    <div class="grid">
+        <a href="{% url 'tour_detail' card.name %}" class="back-btn">
+            <img style="width: 32px; height: 32px; position: relative; top: 20px;" 
+                 src="{% static 'images/arrow_back_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' %}" alt="Back">
+        </a>
+
+        {% for hotel in hotels %}
+        <div class="item">
+            <img src="{{ hotel.image }}" alt="{{ hotel.name }}" class="hotel-images" style="width: 100%; height: 200px; object-fit: cover; border-radius: 30px;">
+            
+            <div class="room-details">
+                <h3 class="room-title">{{ hotel.name }}</h3>
+                <div class="room-info">
+                    <div class="info-left">
+                        <p><span class="icon">🛏️</span> {{ hotel.rooms_count }} Room</p>
+                        <p><span class="icon">👥</span> {{ hotel.max_guests }} Guests</p>
+                        <p><span class="icon">🚭</span> Non-Smoking Room</p>
+                    </div>
+                    <div class="info-right">
+                        <p class="price">${{ hotel.price_per_night }}</p>
+                        <p>(For 01 Night/Room)</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="{% url 'hotel_detail' hotel.id %}">
+                        <button class="select-button">Select Room</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+{% load static %}
+{% block content %}
+<div class="actual-tours">
+    {% for tour in tours %}
+    <a href="{% url 'tour_detail' tour.name %}">
+        <div class="actual-tour">
+            <img src="{{ tour.image }}" class="image-tours" alt="{{ tour.name }}">
+            <div class="actual-tour__description">
+                <div class="actual-tour__data">
+                    <strong>{{ tour.name }}</strong>
+                    <span>{{ tour.location }}</span>
+                </div>
+                <div class="actual-tour__rating">
+                    <img src="{% static './images/star.svg' %}"> {{ tour.rating }}
+                </div>
+            </div>
+        </div>
+    </a>
+    
+    {% endfor %}
+</div>
+
+
+<h3 class="txt2">Explore more</h3>
+
+<div class="explore-more-section">
+    {% for explore in explore_more %}
+    <a href="{% url 'tour_detail' explore.name %}">
+        <div class="Explore-more">
+            <img src="{{ explore.image }}" class="image-tours" alt="{{ explore.name }}">  
+            <div class="text3">
+                <strong>{{ explore.name }}</strong>
+                <span>{{ explore.location }}</span>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<footer class="footer">
+    <div class="container footer-row">
+
+        <a href="{% url 'home_page' %}" class="home-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.45 2.53344C13.0442 2.19146 12.5307 2.00391 12 2.00391C11.4693 2.00391 10.9558 2.19146 10.55 2.53344L3.8 8.22844C3.54946 8.4396 3.34806 8.70292 3.20988 9.00001C3.0717 9.2971 3.00007 9.62079 3 9.94844V19.2534C3 20.2194 3.784 21.0034 4.75 21.0034H7.75C8.21413 21.0034 8.65925 20.8191 8.98744 20.4909C9.31563 20.1627 9.5 19.7176 9.5 19.2534V15.2504C9.5 14.5704 10.042 14.0184 10.717 14.0004H13.283C13.6088 14.009 13.9183 14.1445 14.1456 14.378C14.373 14.6115 14.5001 14.9246 14.5 15.2504V19.2534C14.5 20.2194 15.284 21.0034 16.25 21.0034H19.25C19.7141 21.0034 20.1592 20.8191 20.4874 20.4909C20.8156 20.1627 21 19.7176 21 19.2534V9.94744C20.9999 9.61979 20.9283 9.2961 20.7901 8.99901C20.6519 8.70192 20.4505 8.4386 20.2 8.22744L13.45 2.53344Z" fill="white"/>
+            </svg>    
+        </a>
+        <a href="{% url 'account_info' %}" class="home-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 12C13.0384 12 14.0534 11.6921 14.9167 11.1152C15.7801 10.5383 16.453 9.7184 16.8504 8.75909C17.2477 7.79978 17.3517 6.74418 17.1491 5.72578C16.9466 4.70738 16.4465 3.77192 15.7123 3.03769C14.9781 2.30347 14.0426 1.80345 13.0242 1.60088C12.0058 1.39831 10.9502 1.50227 9.99091 1.89963C9.0316 2.29699 8.21166 2.9699 7.63478 3.83326C7.05791 4.69662 6.75 5.71165 6.75 6.75C6.75 8.14239 7.30312 9.47775 8.28769 10.4623C9.27226 11.4469 10.6076 12 12 12ZM12 13.5C8.74594 13.5 2.25 15.51 2.25 19.5V22.5H21.75V19.5C21.75 15.51 15.2541 13.5 12 13.5Z" fill="white"/>
+            </svg>    
+        </a>
+        <a href="{% url 'office_location' %}" class="home-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M120-120v-560h160v-160h400v320h160v400H520v-160h-80v160H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z"/></svg>          
+        </a>
+        <a href="{% url 'privacy_policy' %}" class="home-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+                
+        </a>
+    </div>
+</footer>
+{% endblock %}
